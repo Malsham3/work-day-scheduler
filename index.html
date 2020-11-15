@@ -32,46 +32,8 @@
       <!-- Timeblocks go here -->
     </div>
 
+    <!-- Using Luxon to access live time/date data -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-
-    <script>
-
-      console.log(+moment)    // display current time.
-
-      for (let i = 0; i < 18; i++) {
-        $(".container").append(buildTimeSlot(i)); //i = hour 
-        
-      }
-
-
-      function buildTimeSlot(hour){
-        //Generate containing div
-        const $timeSlot = $("<div>")
-        .attr("id", "hour-" + hour) 
-        .attr("class", "row time-block")
-
-          // Generate the time label, that sits to the left of the textaea
-        const $timeLabel = $("<div>").attr("class", "col-md-1 hour")
-          //if the hour is greater than or equal to 12, convert to PM
-          if(hour > 12){
-            $timeLabel.text(hour - 12 + "PM");
-          }else if(hour === 12){
-            $timeLabel.text(hour + "PM");
-          } {
-            $timeLabel.text(hour + "AM");
-          }
-        // Generate textArea
-        const $textArea = $("<textarea>")
-        .attr("class", "col-md-10 description")
-
-        const $btn = $("<button>")
-        .attr("") // phone
-
-        $timeSlot.append($timeLabel, $textArea, $btn);
-
-        return $timeSlot;
-      }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.10.0/build/global/luxon.js"></script>
   </body>
 </html>
