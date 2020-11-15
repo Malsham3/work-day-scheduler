@@ -42,10 +42,16 @@ for (let i = 9; i < 18 i++) {
     // generate time slots for 9AM-5PM 
     $(".container").append(buildTimeSlot(i));
     
-    //previously entered and note deleted notes are added back after page load.
+    // previously entered and note deleted notes are added back after page load.
     var savedNote = localStorage.getItem(i)
       var rowID = $(`#${i}`);
       rowID.children(".description").text(savedNote);
 
-    
+      if(i == hour) {
+        rowID.addClass("present")
+    } else if (i < hour) {
+        rowID.addClass("past")
+    } else {
+        rowID.addClass("future")
+    }  
 }
